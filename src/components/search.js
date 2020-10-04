@@ -18,7 +18,7 @@ const getProductsDb = async (req, res) => {
       order: [
         'price'
       ],
-      limit: 30,
+      limit: 1000,
       where: {
         name: {
           [Op.iRegexp]: query

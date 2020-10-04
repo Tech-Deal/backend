@@ -1,8 +1,8 @@
 require('dotenv').config()
 
 const config = {
-  port: process.env.PORT,
-  host: process.env.HOST,
+  port: process.env.PORT || 4000,
+  host: process.env.HOST || localhost,
   pgHost: process.env.PGHOST,
   pgUser: process.env.PGUSER,
   pgDatabase: process.env.PGDATABASE,

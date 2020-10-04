@@ -64,11 +64,15 @@
 
 ## Products
 
-### GET PRODUCTS 
+### SEARCH PRODUCTS 
 
  > GET
  
 ```http://localhost:4000/search?query=[parametro]```
+
+ > GET user login
+ 
+```http://localhost:4000/search?query=[parametro]&user_id=[user_id]```
 
 > Response
 
@@ -102,6 +106,7 @@
 
 
 
+## Recomendations
 
-
+### Get Recomendations
 

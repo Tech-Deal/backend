@@ -79,3 +79,7 @@ $RECYCLE.BIN/
 /jspm_packages/
 /vercel
 .vercel
+.firebase/
+.firebaserc
+firebase-debug.log
+firebase.json

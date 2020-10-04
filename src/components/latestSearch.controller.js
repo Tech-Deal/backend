@@ -18,45 +18,48 @@ const userProducts = async (user_id, query) => {
   } else {
     console.log('No register en database')
   }
-
 }
 
 const recommendations = async (req, res) => {
   const user_id = req.query.user_id
   try {
-    const data = await latestSearch.findAll({
-      attributes: ["query"],
-      order: [
-        ['createdAt', 'DESC']
-      ],
-      limit: 1,
-      where: {
-        user_id: user_id
-      }
-    })
-    const result = data[0].query
-    try {
-      const recommendationsSearch = await Products.findAll({
+    if (user_id) {
+      const data = await latestSearch.findAll({
+        attributes: ["query"],
+        order: [
+          ['createdAt', 'DESC']
+        ],
+        limit: 1,
+        where: {
+          user_id: user_id
+        }
+      })
+      const result = data[0].query
+      recommendationsSearch = await Products.findAll({
         where: {
           name: {
             [Op.iRegexp]: result
           }
         },
         order: sequelize.random(),
-        limit: 5,
+        limit: 12,
       })
-      res.json({
-        count: recommendationsSearch.length,
-        data: recommendationsSearch
-      })
-    } catch (error) {
-      res.json({
-        error: `Error in query: ${error}`
+    } else {
+      recommendationsSearch = await Products.findAll({
+        order: sequelize.random(),
+        limit: 12,
       })
     }
+    res.json({
+      count: recommendationsSearch.length,
+      data: recommendationsSearch
+    })
   } catch (error) {
-    console.log(error)
+    res.json({
+      error: `Error in query: ${error}`
+    })
   }
+
 }
 
 
