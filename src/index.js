@@ -15,7 +15,7 @@ app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-app.use(cors({ origin: ['http://localhost:3000', 'https://tech-deal-3vj4sfrtl.vercel.app/'] }));
+app.use(cors({ origin: ['https://tech-deal-3vj4sfrtl.vercel.app/', 'https://techdeal.vercel.app'] }));
 
 
 
