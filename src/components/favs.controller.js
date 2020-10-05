@@ -1,5 +1,7 @@
 const { query } = require('../database')
 const { Favs } = require('../model/favs')
+const { Products } = require('../model/products')
+const { Users } = require('../model/users')
 
 
 
@@ -26,7 +28,11 @@ const addFavs = async (req, res) => {
 const getFavs = async (req, res) => {
   const user_id = parseInt(req.params.user_id)
   try {
-    const favs = await Favs.findAll({
+    const favs = await Users.findAll({
+      where: {
+        id: user_id
+      },
+      include: Favs,
       where: {
         user_id: user_id
       }
@@ -34,8 +40,8 @@ const getFavs = async (req, res) => {
     res.json({
       body: favs
     })
-
   } catch (e) {
+    console.log(e)
     res.json({
       error: e
     })

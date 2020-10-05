@@ -43,7 +43,7 @@ const Login = async function (req, res) {
       }
     });
     if (!user) {
-      res.status(401).json({ message: 'No such user found' });
+      res.status(401).json({ error: 'No such user found' });
       return
     }
     const result = await bcrypt.compare(password, user.password);
@@ -53,7 +53,7 @@ const Login = async function (req, res) {
       res.json({ status: 200, token: token });
       return
     } else {
-      res.json('User or password incorrect')
+      res.status(401).json({ error: 'User or password incorrect' })
     }
   }
 };
@@ -69,8 +69,8 @@ const Register = async (req, res) => {
         last_name: req.body.lastname,
         email: req.body.email,
         password: password,
-//        country_id: req.body.country,
-//        age: req.body.age
+        //        country_id: req.body.country,
+        //        age: req.body.age
       }).then(user => {
         res.json({ message: 'User successfully registered' });
       });
