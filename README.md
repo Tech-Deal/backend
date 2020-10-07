@@ -5,7 +5,7 @@
 
 > POST
 
-```http://localhost:4000/```
+```http://localhost:4000/register```
 
 >Body
 
@@ -43,6 +43,7 @@
 ### Login
 
 > POST
+```http://localhost:4000/login
 
 ```json
 
@@ -163,7 +164,7 @@ in the user's last search
 
 > POST
 
-```{url}/favs/{user_id}```
+```http://localhost:4000/favs/{user_id}```
 
 > Body
 
@@ -194,7 +195,7 @@ in the user's last search
 
 > GET
 
-```{{url}}/favs/{user_id}```
+```http://localhost:4000/favs/{user_id}```
 
 > Response 
 
@@ -234,7 +235,7 @@ in the user's last search
 
 > POST
 
-```{{url}}/removefavs/{product_id}?status=true```
+```http://localhost:4000/removefavs/{product_id}?status=true```
 
 > Response 
 
