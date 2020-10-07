@@ -111,9 +111,9 @@
 
 ### Get Recomendations
 
-Recomendaciones basada en la ultima busqueda del usuario
-Si el usuario no se encuentra logueado se le muestran productos random
-Si el ususario se encuantra logueado se muestan productos random basasos  en la ultima busqueda del usuario
+Recommendations based on the user's last search If the user is not logged in, 
+random products are shown If the user is logged in, random products are shown 
+in the user's last search
 
 > GET  User Login
 
